@@ -10,4 +10,5 @@ ws = wb.active
 
 #번호 영어 수학
 ws.move_range("C1:C11", rows=5, cols=-1)    # 수학 영역을 row 기준 밑으로 5칸 col 기준 왼쪽으로 (음수이기 때문에) 1칸 
+
 wb.save("sample_korean.xlsx")
