@@ -1,0 +1,23 @@
+from selenium import webdriver
+from selenium.common.by import By
+import time
+
+
+browser = webdriver.Chrome()
+browser.maximize_window()
+
+browser.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox")
+
+browser.switch_to.frame('iframeResult')
+
+elem = browser.find_element(By.XPATH, '//*[@id="vehicle1"]')    # 성공
+
+time.sleep(5)
+
+if elem.is_selected() == False:
+    print("선택 안 되어 있으므로 선택")
+    elem.clear()
+else:
+    print("선택 되어 있으므로 아무것도 안함")
+
+time.sleep(5)
