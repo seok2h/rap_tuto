@@ -22,33 +22,33 @@ url = 'https://www.w3schools.com/'
 browser = webdriver.Chrome()
 browser.get(url)
 
+first_name = "나도"
+last_name = "코딩"
+country = "Canada"
+subject = "퀴즈 완료하였습니다."
+
 # LEARN HTML click
-browser.find_element(By.XPATH, '//*[@id="main"]/div[2]/div/div[1]/a[1]').click()
 # HOW TO click
 browser.find_element(By.XPATH, '//*[@id="subtopnav"]/a[8]').click()
+
 # Contact Form menu click
 browser.find_element(By.XPATH, '//*[@id="leftmenuinnerinner"]/a[120]').click()
 
 # first name에 '나도'입력
-first_name = browser.find_element(By.XPATH, '//*[@id="fname"]')  # first name
-first_name.send_keys('나도')
+browser.find_element(By.XPATH, '//*[@id="fname"]').send_keys(first_name)  # first name
 
 # last name에 '코딩' 입력
-last_name = browser.find_element(By.XPATH, '//*[@id="lname"]')
-last_name.send_keys('코딩')
+browser.find_element(By.XPATH, '//*[@id="lname"]').send_keys(last_name)
 
 # 국적 캐나다로 설정
-option_bar = browser.find_element(By.XPATH, '//*[@id="country"]')
-option_bar.click()
-browser.find_element(By.XPATH, '//*[@id="country"]/option[2]').click()  # 캐나다 클릭
+browser.find_element(By.XPATH, '//*[@id="country"]/option[text()="{}"]'.format(country)).click()  # 캐나다 클릭
 
 # text area에 "퀴즈 완료했습니다." 입력
-browser.find_element(By.XPATH, '//*[@id="main"]/div[3]/textarea').send_keys('퀴즈 완료하였습니다.')
+browser.find_element(By.XPATH, '//*[@id="main"]/div[3]/textarea').send_keys(subject)
 
 # 버튼
-submit_button = browser.find_element(By.XPATH, '//*[@id="main"]/div[3]/a')
 time.sleep(5)
-submit_button.click()
+submit_button = browser.find_element(By.XPATH, '//*[@id="main"]/div[3]/a').click()
 
 time.sleep(5)
 browser.quit()
