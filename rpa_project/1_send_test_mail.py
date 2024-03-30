@@ -4,16 +4,11 @@
 #   (예) 나도코딩/1234
 
 import smtplib
-import os
-from dotenv import load_dotenv
+from load_private_information import *
 from email.message import EmailMessage
 from random import *
 
 nicknames = ["유재석", "박명수", "정현돈", "노홍철", "조세호"]
-
-load_dotenv()
-EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
-EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
 
 with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
     smtp.ehlo()
